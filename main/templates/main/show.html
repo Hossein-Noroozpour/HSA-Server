@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Display Agents Page</title>
+</head>
+<body>
+{% if agents_list %}
+    <ul>
+    {% for agent in agents_list %}
+        <li><a href="/main/show-agent/{{ agent.id }}/">{{ agent.first_name }} {{ agent.last_name }}</a></li>
+        <li>{{ agent.email_address }}</li>
+        <li>{{ agent.phone_number }}</li>
+        <li>{{ agent.home_address }}</li>
+        <li>{{ agent.work_address }}</li>
+        <li>{{ agent.confirmed }}</li>
+        <li>{{ agent.registration_date }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Agent is registered now.</p>
+{% endif %}
+</body>
+</html>
