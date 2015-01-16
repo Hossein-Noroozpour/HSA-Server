@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+</head>
+<body>
+{% if error_message %} <div class="error-message"> {{ error_message }} </div> {% endif %}
+<form action="{% url 'main:register' %}" method="post">
+{% csrf_token %}
+    <div class="input-row">
+        <div class="input-label"> Your first name </div>
+        <input type="text" name="first-name" id="fist-name" value="Write your first name here."/>
+    </div>
+    <div class="input-row">
+        <div class="input-label"> Your last name </div>
+        <input type="text" name="last-name" id="last-name" value="Write your last name here."/>
+    </div>
+    <div class="input-row">
+        <div class="input-label"> Your e-mail address </div>
+        <input type="email" name="email-address" id="email-address" value="example@example.exa"/>
+    </div>
+    <div class="input-row">
+        <div class="input-label"> Your birth date </div>
+        <input type="date" name="birth-date" id="birth-date"/>
+    </div>
+    <div class="input-row">
+        <div class="input-label"> Your phone number </div>
+        <input type="number" name="phone-number" id="phone-number" value="09"/>
+    </div>
+    <div class="input-row">
+        <div class="input-label"> Your home address </div>
+        <input type="text" name="home-address" id="home-address"/>
+    </div>
+    <div class="input-row">
+        <div class="input-label"> Your work address </div>
+        <input type="text" name="work-address" id="work-address"/>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>

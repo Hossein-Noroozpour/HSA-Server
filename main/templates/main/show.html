@@ -2,21 +2,23 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Display Agents Page</title>
+    <title>Display Agent Page</title>
 </head>
 <body>
 {% if agents_list %}
-    <ul>
+    <table>
     {% for agent in agents_list %}
-        <li><a href="/main/show-agent/{{ agent.id }}/">{{ agent.first_name }} {{ agent.last_name }}</a></li>
-        <li>{{ agent.email_address }}</li>
-        <li>{{ agent.phone_number }}</li>
-        <li>{{ agent.home_address }}</li>
-        <li>{{ agent.work_address }}</li>
-        <li>{{ agent.confirmed }}</li>
-        <li>{{ agent.registration_date }}</li>
+        <tr>
+            <th><a href="{% url 'main:detail' agent.id %}">{{ agent.first_name }} {{ agent.last_name }}</a></th>
+            <th>{{ agent.email_address }}</th>
+            <th>{{ agent.phone_number }}</th>
+            <th>{{ agent.home_address }}</th>
+            <th>{{ agent.work_address }}</th>
+            <th>{{ agent.confirmed }}</th>
+            <th>{{ agent.registration_date }}</th>
+        </tr>
     {% endfor %}
-    </ul>
+    </table>
 {% else %}
     <p>No Agent is registered now.</p>
 {% endif %}

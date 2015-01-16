@@ -4,10 +4,11 @@ from django.utils import timezone
 # Create your models here.
 
 
-class Agents(models.Model):
+class Agent(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    email_address = models.EmailField(max_length=255)
+    email_address = models.EmailField(max_length=255, unique=True)
+    birth_date = models.DateField()
     phone_number = models.CharField(max_length=16)
     home_address = models.CharField(max_length=511)
     work_address = models.CharField(max_length=511)
@@ -15,6 +16,7 @@ class Agents(models.Model):
     session_key_iv_aes = models.CharField(max_length=128)
     logged_in = models.BooleanField(default=False)
     login_tries = models.PositiveSmallIntegerField()
+    last_login_try = models.DateTimeField()
     confirmed = models.BooleanField(default=False)
     registration_date = models.DateTimeField()
 
